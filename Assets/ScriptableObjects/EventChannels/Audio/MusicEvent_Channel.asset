@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c742bf62328becf4689c1c95e42d5094, type: 3}
   m_Name: MusicEvent_Channel
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: f652d426bd2746347b7728672bd8a400
+  description: This channel plays Music sound cues, only one Music sound cue will
+    be playing at a time

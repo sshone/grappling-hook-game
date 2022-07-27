@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec521805a41dc44ae33807bd9eec27, type: 3}
   m_Name: MasterVolumeEvent_Channel
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: e6d0e9417e9a776489d14366df5ea8dc
+  description: This channel controls the Master volume of the application

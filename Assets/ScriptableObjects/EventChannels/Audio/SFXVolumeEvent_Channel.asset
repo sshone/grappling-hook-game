@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec521805a41dc44ae33807bd9eec27, type: 3}
   m_Name: SFXVolumeEvent_Channel
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: f50c093b73470894db5bbbb8f58cadc8
+  description: This channel controls the SFX volume of the application

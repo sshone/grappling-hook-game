@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c742bf62328becf4689c1c95e42d5094, type: 3}
   m_Name: SFXEvent_Channel
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: def94e153106d4f40a22c3bff70f027e
+  description: This channel plays SFX sound cues

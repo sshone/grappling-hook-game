@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec521805a41dc44ae33807bd9eec27, type: 3}
   m_Name: MusicVolumeEvent_Channel
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: 745a0ce31b5618a4984253d9fad7bbef
+  description: This channel controls the Music volume of the application

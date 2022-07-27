@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1828636c808bf774da4ce0d648d30925, type: 3}
   m_Name: OnSceneReady_Channel
   m_EditorClassIdentifier: 
-  description: 
+  description: This event channel is used to announce when a new scene is loaded

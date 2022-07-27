@@ -136,6 +136,15 @@ public class AudioManager : MonoBehaviour
 
 	private AudioCueKey PlayMusicTrack(AudioCueSO audioCue, AudioConfigurationSO audioConfiguration, Vector3 positionInSpace)
 	{
+        if (_musicSoundEmitter != null && _musicSoundEmitter.IsPlaying())
+        {
+            var songToPlay = audioCue.GetClips()[0];
+            if (_musicSoundEmitter.GetClip() == songToPlay)
+                return AudioCueKey.Invalid;
+
+			StopMusicEmitter(_musicSoundEmitter);
+        }
+
 		_musicSoundEmitter = _pool.Request();
 		_musicSoundEmitter.PlayAudioClip(audioCue.GetClips()[0], audioConfiguration, true);
 		_musicSoundEmitter.OnSoundFinishedPlaying += StopMusicEmitter;

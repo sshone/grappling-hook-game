@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1828636c808bf774da4ce0d648d30925, type: 3}
   m_Name: ExitApplication_Channel
   m_EditorClassIdentifier: 
-  description: 
+  description: When an event is fired on this channel the application will exit
