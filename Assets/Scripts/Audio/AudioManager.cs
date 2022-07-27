@@ -147,7 +147,10 @@ public class AudioManager : MonoBehaviour
 
 		_musicSoundEmitter = _pool.Request();
 		_musicSoundEmitter.PlayAudioClip(audioCue.GetClips()[0], audioConfiguration, true);
-		_musicSoundEmitter.OnSoundFinishedPlaying += StopMusicEmitter;
+		
+
+
+        _musicSoundEmitter.OnSoundFinishedPlaying += StopMusicEmitter;
 
 		return AudioCueKey.Invalid; //No need to return a valid key for music
 	}
@@ -190,7 +193,7 @@ public class AudioManager : MonoBehaviour
                 continue;
             }
 
-            soundEmitterArray[i].PlayAudioClip(clipsToPlay[i], settings, audioCue.Looping, position);
+            soundEmitterArray[i].PlayAudioClip(clipsToPlay[i], settings, audioCue.Looping);
             if (!audioCue.Looping)
                 soundEmitterArray[i].OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
         }

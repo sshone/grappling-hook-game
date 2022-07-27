@@ -5,7 +5,24 @@ public class Player : MonoBehaviour
     [Header("Broadcasting on")]
     [Tooltip("Fires a GameOver event on this channel")]
     [SerializeField] private VoidEventChannelSO _gameOverChannel = default;
-    
+
+    //private float gravity;
+    private Rigidbody2D rb;
+    //private Vector2 startPos;
+
+    private bool dead;
+
+    void Start()
+    {
+        //startPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        //gravity = rb.gravityScale;
+    }
+
+    void Update()
+    {
+        RotatePlayerTowardsVelocity();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,5 +44,12 @@ public class Player : MonoBehaviour
             Debug.Log("Raising game over event...");
             _gameOverChannel.RaiseEvent();
         }
+    }
+
+    void RotatePlayerTowardsVelocity()
+    {
+        var playerVelocity = rb.velocity;
+        var angleDegrees = Mathf.Atan2(playerVelocity.y, 10) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angleDegrees));
     }
 }

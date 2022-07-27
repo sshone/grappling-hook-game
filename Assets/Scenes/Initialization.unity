@@ -153,8 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverChannel: {fileID: 11400000, guid: a74eab8314fafcf468bad072d145ef76, type: 2}
+  _newScoreChannel: {fileID: 0}
   _pauseApplicationChannel: {fileID: 11400000, guid: 86e9f8e25961d914aa4f4ad3adf8d0d5, type: 2}
   _resumeApplicationChannel: {fileID: 11400000, guid: 0c58af99ddb50a8438017510d1a63b53, type: 2}
+  _highScoreUpdatedChannel: {fileID: 0}
 --- !u!4 &793511081
 Transform:
   m_ObjectHideFlags: 0

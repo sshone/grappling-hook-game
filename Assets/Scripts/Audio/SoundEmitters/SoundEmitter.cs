@@ -22,11 +22,13 @@ public class SoundEmitter : MonoBehaviour
 	/// <param name="settings"></param>
 	/// <param name="hasToLoop"></param>
 	/// <param name="position"></param>
-	public void PlayAudioClip(AudioClip clip, AudioConfigurationSO settings, bool hasToLoop, Vector3 position = default)
+	public void PlayAudioClip(AudioClip clip, AudioConfigurationSO settings, bool hasToLoop)
 	{
 		_audioSource.clip = clip;
 		settings.ApplyTo(_audioSource);
-		_audioSource.transform.position = position;
+
+        _audioSource.spatialBlend = 0.0f;
+		
 		_audioSource.loop = hasToLoop;
 		_audioSource.time = 0f; //Reset in case this AudioSource is being reused for a short SFX after being used for a long music track
         _audioSource.volume = settings.Volume;
