@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8953405683268182182}
   - component: {fileID: 8953405683268182183}
   - component: {fileID: 8953405683268182180}
-  - component: {fileID: -508391236975269834}
   m_Layer: 6
   m_Name: DestructibleBlock
   m_TagString: Destructible
@@ -112,19 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-508391236975269834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8953405683268182181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c523594c870fe47ac003b076a54e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnCollideWith: {fileID: 2492038841975200508, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
-  _audioCue: {fileID: 11400000, guid: a8350674204d57f47b235279ba9aa441, type: 2}
-  _audioCueEventChannel: {fileID: 11400000, guid: def94e153106d4f40a22c3bff70f027e, type: 2}
-  _audioConfiguration: {fileID: 11400000, guid: 2b46e85059286284686cca8d40b29cb7, type: 2}

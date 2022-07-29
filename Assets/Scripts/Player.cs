@@ -45,30 +45,41 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Collided with collision event");
 
-        if (collision.gameObject.tag == "DeathObstacle")
+        switch (collision.gameObject.tag)
         {
-            explosionPrefab.startColor = Color.red;
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            case "DeathObstacle":
+                explosionPrefab.startColor = Color.red;
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-            Debug.Log("Raising game over event...");
-            _gameOverChannel.RaiseEvent();
-        }
-        else if (collision.gameObject.tag == "Destructible")
-        {
-            if (collision.gameObject.TryGetComponent<SpriteRenderer>(out var renderer))
+                Debug.Log("Raising game over event...");
+                _gameOverChannel.RaiseEvent();
+                break;
+            case "Destructible":
             {
-                explosionPrefab.startColor = renderer.color;
+                if (collision.gameObject.TryGetComponent<SpriteRenderer>(out var renderer))
+                {
+                    explosionPrefab.startColor = renderer.color;
+                }
+                Destroy(collision.gameObject);
+                Instantiate(explosionPrefab, collision.transform.position, Quaternion.identity);
+                _scoreIncreaseChannel.RaiseEvent(1);
+                break;
             }
-            Destroy(collision.gameObject);
-            Instantiate(explosionPrefab, collision.transform.position, Quaternion.identity);
-            _scoreIncreaseChannel.RaiseEvent(1);
         }
     }
 
     void RotatePlayerTowardsVelocity()
     {
         var playerVelocity = rb.velocity;
-        var angleDegrees = Mathf.Atan2(playerVelocity.y, 10) * Mathf.Rad2Deg;
+
+        var rotateRight = 10;
+        if (playerVelocity.x < 0)
+        {
+            rotateRight = -10;
+        }
+
+        
+        var angleDegrees = Mathf.Atan2(playerVelocity.y, rotateRight) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angleDegrees));
     }
 }
