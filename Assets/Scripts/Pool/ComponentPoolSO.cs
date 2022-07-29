@@ -68,7 +68,7 @@ namespace Assets.Scripts.Pool
 #if UNITY_EDITOR
                 DestroyImmediate(_poolRoot.gameObject);
 #else
-				Destroy(_poolRoot.gameObject);
+				DoDeathEffects(_poolRoot.gameObject);
 #endif
             }
         }

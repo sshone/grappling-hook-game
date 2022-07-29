@@ -11,6 +11,11 @@ GameObject:
   - component: {fileID: 8953405683268182182}
   - component: {fileID: 8953405683268182183}
   - component: {fileID: 8953405683268182180}
+  - component: {fileID: 8417888782233532311}
+  - component: {fileID: -6548716587464750498}
+  - component: {fileID: 5102455579177651527}
+  - component: {fileID: 1947522788231262789}
+  - component: {fileID: 2600702902552457763}
   m_Layer: 6
   m_Name: DestructibleBlock
   m_TagString: Destructible
@@ -111,3 +116,124 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8417888782233532311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953405683268182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41234ddb4f3f7ca459b6ebc2ba4d65ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathEffects:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6548716587464750498}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.EmitAudioCueBehaviour,
+          Assembly-CSharp
+        m_MethodName: PlayAudioClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5102455579177651527}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.EmitParticleEffectAtObjectPosition,
+          Assembly-CSharp
+        m_MethodName: EmitParticles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1947522788231262789}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.IncreaseScoreBehaviour,
+          Assembly-CSharp
+        m_MethodName: IncreaseScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2600702902552457763}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.DestroyObjectBehaviour,
+          Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-6548716587464750498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953405683268182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d759980a93bb82c4f8678239b04a4b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioCue: {fileID: 11400000, guid: 09be68ce891832447818bc51ed06cfec, type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: def94e153106d4f40a22c3bff70f027e, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 2b46e85059286284686cca8d40b29cb7, type: 2}
+--- !u!114 &5102455579177651527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953405683268182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14722c21a79d64340ad3d8c4ffd06672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleEffectPrefab: {fileID: 2275618865135808378, guid: d23a15c1ddc9ad64ea0776ad438223fb, type: 3}
+--- !u!114 &1947522788231262789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953405683268182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7132118ef8c4ea34eb2dd6b235cc1d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreValue: 1
+  _scoreIncreaseChannel: {fileID: 11400000, guid: a30d6e281e0520a4aa398661fe2d9f30, type: 2}
+--- !u!114 &2600702902552457763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953405683268182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a3aa0f66990054f9ac13f46a540e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

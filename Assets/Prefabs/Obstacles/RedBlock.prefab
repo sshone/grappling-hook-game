@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2551573986200150771}
   - component: {fileID: 2551573986200150769}
   - component: {fileID: 2551573986200150768}
-  - component: {fileID: 2551573986200150774}
+  - component: {fileID: 1827758512351269574}
+  - component: {fileID: 6599648825685283109}
   m_Layer: 6
   m_Name: RedBlock
   m_TagString: DeathObstacle
@@ -112,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2551573986200150774
+--- !u!114 &1827758512351269574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +122,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 2551573986200150770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c523594c870fe47ac003b076a54e89, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ddbb93155933474493584d5e72d7516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCollideWith: {fileID: 2492038841975200508, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
+  _onlyTriggerOnCollisionWithPlayer: 1
+  _onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6599648825685283109}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.EmitAudioCueBehaviour,
+          Assembly-CSharp
+        m_MethodName: PlayAudioClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6599648825685283109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551573986200150770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d759980a93bb82c4f8678239b04a4b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _audioCue: {fileID: 11400000, guid: 09be68ce891832447818bc51ed06cfec, type: 2}
   _audioCueEventChannel: {fileID: 11400000, guid: def94e153106d4f40a22c3bff70f027e, type: 2}
   _audioConfiguration: {fileID: 11400000, guid: 2b46e85059286284686cca8d40b29cb7, type: 2}

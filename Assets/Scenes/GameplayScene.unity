@@ -521,6 +521,8 @@ GameObject:
   - component: {fileID: 282816001}
   - component: {fileID: 282816003}
   - component: {fileID: 282816005}
+  - component: {fileID: 282816007}
+  - component: {fileID: 282816006}
   m_Layer: 0
   m_Name: Lava
   m_TagString: DeathObstacle
@@ -635,6 +637,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaintainXOffset: 0
   _cameraToTrack: {fileID: 328115142}
+--- !u!114 &282816006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282816000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d759980a93bb82c4f8678239b04a4b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioCue: {fileID: 11400000, guid: 3562b55bfe69b17468f7a2a0fd87ac57, type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: def94e153106d4f40a22c3bff70f027e, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 2b46e85059286284686cca8d40b29cb7, type: 2}
+--- !u!114 &282816007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282816000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddbb93155933474493584d5e72d7516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onlyTriggerOnCollisionWithPlayer: 1
+  _onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 282816006}
+        m_TargetAssemblyTypeName: Assets.Scripts.Behavioural.EmitAudioCueBehaviour,
+          Assembly-CSharp
+        m_MethodName: PlayAudioClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &287925069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6149,6 +6195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 315197476}
     m_Modifications:
+    - target: {fileID: 8953405683268182180, guid: fe9d794236bc7da45936832c23fe72ce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8953405683268182181, guid: fe9d794236bc7da45936832c23fe72ce, type: 3}
       propertyPath: m_Name
       value: UnbreakableBlock
@@ -6972,6 +7022,8 @@ GameObject:
   - component: {fileID: 919216755}
   - component: {fileID: 919216758}
   - component: {fileID: 919216757}
+  - component: {fileID: 919216759}
+  - component: {fileID: 919216760}
   - component: {fileID: 919216756}
   m_Layer: 5
   m_Name: ResetButton
@@ -7067,6 +7119,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919216754}
   m_CullTransparentMesh: 1
+--- !u!114 &919216759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919216754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36066bbee2bb1df4e84e2d19b5632eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _voidEventChannel: {fileID: 11400000, guid: a74eab8314fafcf468bad072d145ef76, type: 2}
+--- !u!114 &919216760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919216754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36066bbee2bb1df4e84e2d19b5632eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _voidEventChannel: {fileID: 11400000, guid: 0c58af99ddb50a8438017510d1a63b53, type: 2}
 --- !u!1 &1030044862
 GameObject:
   m_ObjectHideFlags: 0
@@ -7460,7 +7538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2551573986200150771, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2551573986200150771, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7502,10 +7580,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -20
       objectReference: {fileID: 0}
-    - target: {fileID: 2551573986200150774, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
-      propertyPath: OnCollideWith
-      value: 
-      objectReference: {fileID: 1480944385}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
 --- !u!1 &1373869147
@@ -7937,6 +8011,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2492038841975200510, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
   m_PrefabInstance: {fileID: 2492038842910847485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1480944389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2492038841975200498, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
+  m_PrefabInstance: {fileID: 2492038842910847485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480944385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac5696321dc0c846ba3a034ccbac068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1480944394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480944385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddbb93155933474493584d5e72d7516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onlyTriggerOnCollisionWithPlayer: 0
+  _onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1480944389}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: HandleCollision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1503449782
 GameObject:
   m_ObjectHideFlags: 0
@@ -9418,6 +9531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2492038842103508169, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
+    - {fileID: 2492038841975200493, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a50404ac7007f4047b3257a9ae035289, type: 3}
 --- !u!1001 &2551573987459743322
 PrefabInstance:
@@ -9432,7 +9546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2551573986200150771, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2551573986200150771, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9474,9 +9588,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -20
       objectReference: {fileID: 0}
-    - target: {fileID: 2551573986200150774, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
-      propertyPath: OnCollideWith
-      value: 
-      objectReference: {fileID: 1480944385}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa32ab5b89e443a4b9fde7c5d91f727c, type: 3}
