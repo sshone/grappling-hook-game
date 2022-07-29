@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,17 +25,43 @@ public class SceneChangeManager : MonoBehaviour
 
     public void LoadScene(string sceneToLoad)
     {
+
         for (var i = 0; i < SceneManager.sceneCount; i++)
         {
             var scene = SceneManager.GetSceneAt(i);
 
             if (scene.name != "Initialization")
             {
-                SceneManager.UnloadSceneAsync(scene);
+                StartCoroutine(UnloadYourAsyncScene(scene.name));
             }
         }
 
-        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        StartCoroutine(LoadYourAsyncScene(sceneToLoad));
+
         _onSceneReady.RaiseEvent();
+    }
+
+    IEnumerator UnloadYourAsyncScene(string sceneName)
+    {
+        var asyncLoad = SceneManager.UnloadSceneAsync(sceneName);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+    }
+
+    IEnumerator LoadYourAsyncScene(string sceneName)
+    {
+        var asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
     }
 }

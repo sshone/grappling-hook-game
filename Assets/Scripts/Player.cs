@@ -5,6 +5,10 @@ public class Player : MonoBehaviour
     [Header("Broadcasting on")]
     [Tooltip("Fires a GameOver event on this channel")]
     [SerializeField] private VoidEventChannelSO _gameOverChannel = default;
+    [Tooltip("Fires an event on this channel when scoring points")]
+    [SerializeField] private FloatEventChannelSO _scoreIncreaseChannel = default;
+
+    public ParticleSystem explosionPrefab;
 
     //private float gravity;
     private Rigidbody2D rb;
@@ -33,6 +37,8 @@ public class Player : MonoBehaviour
             Debug.Log("Raising game over event...");
             _gameOverChannel.RaiseEvent();
         }
+
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -41,8 +47,21 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "DeathObstacle")
         {
+            explosionPrefab.startColor = Color.red;
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
             Debug.Log("Raising game over event...");
             _gameOverChannel.RaiseEvent();
+        }
+        else if (collision.gameObject.tag == "Destructible")
+        {
+            if (collision.gameObject.TryGetComponent<SpriteRenderer>(out var renderer))
+            {
+                explosionPrefab.startColor = renderer.color;
+            }
+            Destroy(collision.gameObject);
+            Instantiate(explosionPrefab, collision.transform.position, Quaternion.identity);
+            _scoreIncreaseChannel.RaiseEvent(1);
         }
     }
 

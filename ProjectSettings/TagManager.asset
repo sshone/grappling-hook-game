@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeathObstacle
+  - Destructible
   layers:
   - Default
   - TransparentFX

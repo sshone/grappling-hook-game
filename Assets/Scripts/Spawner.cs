@@ -10,14 +10,7 @@ public class Spawner : MonoBehaviour
 
     private float _lastSpawnedX = 0f;
     private float _lastSpawnedY = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (!(Time.time >= _nextTimeToSpawn))

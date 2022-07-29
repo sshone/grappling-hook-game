@@ -48,6 +48,7 @@ public class GrapplingGun : MonoBehaviour
 
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
+    [HideInInspector] public GameObject grappledObject;
 
     private void Start()
     {
@@ -57,6 +58,11 @@ public class GrapplingGun : MonoBehaviour
 
     private void Update()
     {
+        if (grappledObject == null)
+        {
+            ReleaseGrapple();
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SetGrapplePoint();
@@ -147,6 +153,7 @@ public class GrapplingGun : MonoBehaviour
 
         grapplePoint = hit.point;
         grappleDistanceVector = grapplePoint - (Vector2) gunPivot.position;
+        grappledObject = hit.transform.gameObject;
         grappleRope.enabled = true;
     }
 

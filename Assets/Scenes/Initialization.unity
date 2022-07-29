@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverChannel: {fileID: 11400000, guid: a74eab8314fafcf468bad072d145ef76, type: 2}
-  _newScoreChannel: {fileID: 0}
+  _scoreIncreasedChannel: {fileID: 11400000, guid: a30d6e281e0520a4aa398661fe2d9f30, type: 2}
+  _gameStateRequestedChannel: {fileID: 11400000, guid: f1e7c085a5f3a6d4f9bc32b0b4374a38, type: 2}
   _pauseApplicationChannel: {fileID: 11400000, guid: 86e9f8e25961d914aa4f4ad3adf8d0d5, type: 2}
   _resumeApplicationChannel: {fileID: 11400000, guid: 0c58af99ddb50a8438017510d1a63b53, type: 2}
-  _highScoreUpdatedChannel: {fileID: 0}
+  _gameplayStateChangedChannel: {fileID: 11400000, guid: 46a8facdd7ee63b419ee98127da5f68c, type: 2}
 --- !u!4 &793511081
 Transform:
   m_ObjectHideFlags: 0
