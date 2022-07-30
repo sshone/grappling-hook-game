@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
                     destroyEffect.DoDeathEffects();
                 }
 
+                ScreenShakeBehaviour.instance.StartShake(0.5f, 0.5f);
+
                 break;
             }
         }
@@ -51,14 +53,14 @@ public class Player : MonoBehaviour
     void RotatePlayerTowardsVelocity()
     {
         var playerVelocity = rb.velocity;
+        var rotationSpeed = 10;
 
-        var rotateRight = 10;
         if (playerVelocity.x < 0)
         {
-            rotateRight = -10;
+            rotationSpeed *= -1;
         }
         
-        var angleDegrees = Mathf.Atan2(playerVelocity.y, rotateRight) * Mathf.Rad2Deg;
+        var angleDegrees = Mathf.Atan2(playerVelocity.y, rotationSpeed) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angleDegrees));
     }
 }
