@@ -11,6 +11,8 @@ public class UpdateGameplayUIOnGameplayStateEvent : MonoBehaviour
     private TMP_Text _highScoreText = null;
     [SerializeField]
     private TMP_Text _gameOverScoreText = null;
+    [SerializeField] 
+    private TMP_Text _currentScoreMultiplierText = null;
 
     [Header("Listening on channels")]
     [Tooltip("Listens for an event on this channel to set GameObject to active")]
@@ -34,5 +36,6 @@ public class UpdateGameplayUIOnGameplayStateEvent : MonoBehaviour
         _scoreText.text = value.Score.ToString(CultureInfo.InvariantCulture);
         _gameOverScoreText.text = value.Score.ToString(CultureInfo.InvariantCulture);
         _highScoreText.text = value.HighScore.ToString(CultureInfo.InvariantCulture);
+        _currentScoreMultiplierText.text = value.CurrentScoreMultiplier.ToString(CultureInfo.InvariantCulture);
     }
 }

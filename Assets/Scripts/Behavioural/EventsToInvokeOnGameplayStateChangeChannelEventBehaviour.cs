@@ -4,13 +4,12 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts.Behavioural
 {
-    public class EventsToInvokeOnStringChannelEventBehaviour : MonoBehaviour
+    public class EventsToInvokeOnGameplayStateChangeChannelEventBehaviour : MonoBehaviour
     {
         [Header("Listening on channels")]
         [Tooltip("Listens for an event on this channel to fire off configured events")]
         [SerializeField] private GameplayStateEventChannelSO _eventChannel = default;
 
-        
         public UnityEvent VoidChannelEvents;
 
         private void OnEnable()

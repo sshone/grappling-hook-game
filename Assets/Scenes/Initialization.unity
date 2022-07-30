@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4153125bb29f94587927432334fcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _multiplierLossGracePeriodSeconds: 1.5
   _gameOverChannel: {fileID: 11400000, guid: a74eab8314fafcf468bad072d145ef76, type: 2}
   _scoreIncreasedChannel: {fileID: 11400000, guid: a30d6e281e0520a4aa398661fe2d9f30, type: 2}
   _gameStateRequestedChannel: {fileID: 11400000, guid: f1e7c085a5f3a6d4f9bc32b0b4374a38, type: 2}
