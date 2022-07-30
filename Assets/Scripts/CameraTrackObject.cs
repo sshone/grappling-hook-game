@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraTrackObject : MonoBehaviour
@@ -10,8 +11,7 @@ public class CameraTrackObject : MonoBehaviour
     [Header("Smooth Follow Configuration")]
     [SerializeField]
     private float DampTime = 0.15f;
-
-    //public float targetZoom, zoomFactor, zoomLerpSpeed;
+    
     [Header("Velocity Zoom Configuration")]
     [SerializeField]
     [Range(5, 20)]
@@ -33,7 +33,6 @@ public class CameraTrackObject : MonoBehaviour
     
     private Vector3 _velocity = Vector3.zero;
     private float _velocity2;
-    private float velocityTest;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -71,8 +70,6 @@ public class CameraTrackObject : MonoBehaviour
         {
             SmoothToStandard();
         }
-
-        velocityTest = velocity;
     }
 
     public void SmoothZoomOut()
@@ -87,6 +84,13 @@ public class CameraTrackObject : MonoBehaviour
 
     public void SmoothToStandard()
     {
-        Camera.orthographicSize = Mathf.SmoothDamp(Camera.orthographicSize, standardZoom, ref _velocity2, smoothTime);
+        var camOrthoSize = Camera.orthographicSize;
+
+        if (Math.Abs(camOrthoSize - standardZoom) < 0.1)
+        {
+            return;
+        }
+
+        Camera.orthographicSize = Mathf.SmoothDamp(camOrthoSize, standardZoom, ref _velocity2, smoothTime);
     }
 }
